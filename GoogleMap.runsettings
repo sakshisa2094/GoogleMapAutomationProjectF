@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+	<!-- Configurations that affect the Test Framework -->
+	<RunConfiguration>
+		<MaxCpuCount>0</MaxCpuCount>
+		<!-- Path relative to solution directory -->
+		<ResultsDirectory>.\TestResults</ResultsDirectory>
+		<!-- x86 or x64 -->
+		<!-- You can also change it from the top-level menu Test > Test Settings > Processor Architecture for AnyCPU Projects -->
+		<TargetPlatform>x64</TargetPlatform>
+		<!-- Framework35 | [Framework40] | Framework45 -->
+		<!--<TargetFrameworkVersion>Framework45</TargetFrameworkVersion>-->
+		<!-- Path to Test Adapters -->
+		<!-- <TestAdaptersPaths>%SystemDrive%\Temp\foo;%SystemDrive%\Temp\bar</TestAdaptersPaths> -->
+		<!-- TestSessionTimeout was introduced in Visual Studio 2017 version 15.5 -->
+		<!-- Specify timeout in milliseconds. A valid value should be greater than 0 -->
+		<TestSessionTimeout>36000000</TestSessionTimeout>
+	</RunConfiguration>
+	<!-- Configurations for data collectors -->
+	<DataCollectionRunSettings>
+		<DataCollectors>
+			<DataCollector friendlyName="Code Coverage" uri="datacollector://Microsoft/CodeCoverage/2.0" assemblyQualifiedName="Microsoft.VisualStudio.Coverage.DynamicCoverageDataCollector, Microsoft.VisualStudio.TraceCollector, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+				<Configuration>
+					<CodeCoverage>
+						<ModulePaths>
+							<Exclude>
+								<ModulePath>.*CPPUnitTestFramework.*</ModulePath>
+							</Exclude>
+						</ModulePaths>
+						<!-- We recommend you do not change the following values: -->
+						<UseVerifiableInstrumentation>True</UseVerifiableInstrumentation>
+						<AllowLowIntegrityProcesses>True</AllowLowIntegrityProcesses>
+						<CollectFromChildProcesses>True</CollectFromChildProcesses>
+						<CollectAspDotNet>False</CollectAspDotNet>
+					</CodeCoverage>
+				</Configuration>
+			</DataCollector>
+			<DataCollector uri="datacollector://microsoft/VideoRecorder/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.DataCollection.VideoRecorder.VideoRecorderDataCollector, Microsoft.VisualStudio.TestTools.DataCollection.VideoRecorder, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="Screen and Voice Recorder">
+				<!--Video data collector was introduced in Visual Studio 2017 version 15.5 -->
+				<Configuration>
+					<!-- Set "sendRecordedMediaForPassedTestCase" to "false" to add video attachments to failed tests only -->
+					<MediaRecorder sendRecordedMediaForPassedTestCase="true"  xmlns="">
+						<ScreenCaptureVideo bitRate="512" frameRate="2" quality="20" />
+					</MediaRecorder>
+				</Configuration>
+			</DataCollector>
+		</DataCollectors>
+	</DataCollectionRunSettings>
+	<!-- Parameters used by tests at runtime -->
+	<TestRunParameters>
+		<Parameter name="browser" value="Chrome" />
+		<Parameter name="releaseVersion" value="11.3" />
+    <Parameter name="GoogleLink" value="https://pmqaserver52.gamma.thycotic.com/TMS/PrivilegeManager" />
+    <Parameter name="username" value="pmqasvc" />
+    <Parameter name="password" value="fPT&amp;!1oTV*y" />
+    <Parameter name="Environment" value="OnPrem" />
+    <Parameter name="LoginType" value="DefaultSS" />
+		<Parameter name="SetUpFilePath" value="C:\\Automation\\SetupFiles\\" />
+		<!-- Add Personal access token value to update test results for MAC-->
+		<Parameter name="PAToken" value="" />
+		<!-- For MAC, Update Test configuration value as per name. Example: "Mac + Chrome (P2)" -->
+		<Parameter name="TestConfiguration" value="" />
+		<!-- Linux Variables -->
+		<Parameter name="host" value="10.60.53.118" />
+		<Parameter name="VmName" value="PMAuto-CentOS6-10-1" />
+		<Parameter name="linuxusername" value="Installer" />
+		<Parameter name="linuxpassword" value="pmqa123!" />
+		<Parameter name="rootusername" value="root" />
+		<Parameter name="rootpassword" value="(Viy!^0LqPmnpB!VH1b)VDa!3&amp;AYIF" />
+		<Parameter name="os" value="centos6" />
+		<Parameter name="defaultWorkingDirectory" value="C:\Automation" />
+		<!-- TestType can be CLI, CLI_UI and UI -->
+		<Parameter name="testType" value="UI" />
+	</TestRunParameters>
+</RunSettings>
